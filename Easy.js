@@ -1,15 +1,15 @@
 let Name = "Shoeb khan";
 
-console.log("hello friend my name is "+ Name)
+// console.log("hello friend my name is "+ Name)
 
 
 let num = 89;
 
 if(num%2 == 0){
-    console.log("this is even number");
+    // console.log("this is even number");
     
 }else{
-    console.log("this is odd number");
+    // console.log("this is odd number");
     
 }
 
@@ -17,9 +17,9 @@ if(num%2 == 0){
 let Age = 9;
 
 if(Age >= 18){
-    console.log("You are eligible to vote");
+    // console.log("You are eligible to vote");
 }else{
-    console.log("You are not eligible to vote");
+    // console.log("You are not eligible to vote");
     
 }
 
@@ -30,4 +30,4 @@ let arr = data.split("").reverse();
 
 let result = arr.join("");
 
-console.log(result);
+// console.log(result);
