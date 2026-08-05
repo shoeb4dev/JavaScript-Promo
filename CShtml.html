@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INR to USD Converter</title>
+    <title>Currency Converter</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2>INR to USD Converter</h2>
+<div class="container">
 
-    <input type="number" id="inr" placeholder="Enter amount in INR">
+    <h2>💱 INR to USD Converter</h2>
 
-    <button onclick="convert()">Convert</button>
+    <input
+        type="number"
+        id="inr"
+        placeholder="Enter Amount in INR">
 
-    <h3 id="result"></h3>
+    <button onclick="convert()">
+        Convert
+    </button>
 
-    <script src="CurrencyConversion.js"></script>
+    <h2 id="result"></h2>
+
+</div>
+
+<script src="CurrencyConversion.js"></script>
 
 </body>
 </html>
