@@ -31,3 +31,12 @@ let arr = data.split("").reverse();
 let result = arr.join("");
 
 // console.log(result);
+
+
+let data1 = "JavaScript";
+
+let arr1 = data1.split("");
+
+let result1 = arr1.length;
+
+console.log(result1);
