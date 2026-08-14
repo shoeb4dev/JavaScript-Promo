@@ -33,3 +33,12 @@ const result = numbers.map(function (num) {
 });
 
 console.log(result);
+
+
+
+
+const number1 = [10, 20, 30, 40];
+
+const result = number1.map(num => num + 5);
+
+console.log(result);
