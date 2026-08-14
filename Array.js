@@ -39,3 +39,12 @@ const number1 = [10, 20, 30, 40];
 const result = number1.map((num) => num + 5);
 
 console.log(result);
+
+
+
+
+const number2 = [5, 12, 8, 20, 3, 15];
+
+const result = number2.filter(num => num > 10);
+
+console.log(result);
