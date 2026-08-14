@@ -27,3 +27,12 @@ for (let i = 7; i < Number.length; i++){
 
     console.log(Number[i]);
 }
+
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.map(function (num) {
+    return num * 2;
+});
+
+console.log(result);
