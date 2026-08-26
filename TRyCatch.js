@@ -13,17 +13,55 @@ try{
 
 // isme maine if statement jo throw use kiya hai uski wajah se niche ka jo console hai adult ka uske wo skip kart=diya agar me throw ki jagah simple console use karta to wo minar or adult dono print kardeta iska mtlb throw jb use hora to next line wo execute hone nhi dera
 
-try{
+// try{
 
-    let age = 19 ;
+//     let age = 0 ;
 
-    if (age < 18) {
-        throw new Error("You are a minor");
+//     if (age < 0) {
+//         throw new Error("Negative number");
         
-    }
+//     }
 
-    console.log("Adult");
-}catch  {
-    console.log("something wrong");
+//     console.log("Valid Number");
+// }catch(err)  {
+//     console.log("something wrong");
     
+// }finally{
+//     console.log("program end")
+// }
+
+
+// try {
+
+//     console.log("A");
+
+//     throw new Error("Problem");
+
+//     console.log("B");
+
+// }
+// catch(error) {
+
+//     console.log("C");
+
+// }
+// finally {
+
+//     console.log("D");
+
+// }
+
+
+
+try {
+    let number = -9
+  if (number < 0) {
+    throw new Error("Negative number");
+  }
+
+  console.log("Valid Number");
+} catch (error) {
+  console.log(error.message);
+} finally {
+  console.log("Program End");
 }
