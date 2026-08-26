@@ -22,3 +22,15 @@ for(let a=1 ; a<=10; a++){
     }
     console.log(a);
 }
+
+
+
+function CheckAge(age){
+    if (age < 18){
+        console.log("You are a minor");
+    }else{
+        console.log("You are an adult");
+    }
+}
+
+CheckAge(2);
