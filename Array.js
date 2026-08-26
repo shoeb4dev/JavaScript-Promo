@@ -28,17 +28,17 @@ for (let i = 7; i < Number.length; i++) {
 
 const numbers = [1, 2, 3, 4, 5];
 
-const result = numbers.map(function (num) {
+const resultq = numbers.map(function (num) {
   return num * 2;
 });
 
-console.log(result);
+console.log(resultq);
 
 const number1 = [10, 20, 30, 40];
 
-const result = number1.map((num) => num + 5);
+const result2 = number1.map((num) => num + 5);
 
-console.log(result);
+console.log(result2);
 
 const number2 = [5, 12, 8, 20, 3, 15];
 
