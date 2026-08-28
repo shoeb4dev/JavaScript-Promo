@@ -1,36 +1,67 @@
 
 
-// return statement jaha diye uske phle ka hi code run karta hai uske bad ka skip kardeta hai 
-function demo(){
-    console.log("Hello World");
-    return;
-    console.log("bye");
+// // return statement jaha diye uske phle ka hi code run karta hai uske bad ka skip kardeta hai 
+// function demo(){
+//     console.log("Hello World");
+//     return;
+//     console.log("bye");
     
+// }
+
+// demo();
+
+
+// //continue current program ku skip kardeta or uske bad continue karta hai jaise yaha 3 ku skip kardiya magar age 4 print karra lkn break condition ku wahi stop kardeta hai or uske bad ka code ku execute nahi karta jaise yaha 7 ku break kardiya or age 8 print nahi hoga
+
+// for(let a=1 ; a<=10; a++){
+//     if(a==3){
+//         continue;
+//     }
+//     if(a==7){
+//         break;
+//     }
+//     console.log(a);
+// }
+
+
+
+// function CheckAge(age){
+//     if (age < 18){
+//         console.log("You are a minor");
+//     }else{
+//         console.log("You are an adult");
+//     }
+// }
+
+// CheckAge(2);
+
+// closure ye bht importent hai jab apun ak variable declear karte to uska ak scoop rahta ki une kaha tak access deta ab function me variable decleare karre bad une function me hi access rahta ab closure kya hai ki ak function k ander or ak function hai bhr k function ka ander acces hojata lkn ander k function ka bhr nhi hota or uske bad ab ye function pura axecute hogai bad apun usku kahi save karre to unne accesable rahta jaisa niche example me karre wala hai 
+
+
+// function Outer() {
+
+//     let x = 1;
+
+//     return function Inner() {
+//         let y = 20;
+//         return x + y;
+//     };
+// }
+
+// let result = Outer();
+
+// console.log(result());
+
+
+function Outer() {
+
+    let x = 10;
+
+    return function() {
+        return x;
+    };
 }
 
-demo();
+let result = Outer();
 
-
-//continue current program ku skip kardeta or uske bad continue karta hai jaise yaha 3 ku skip kardiya magar age 4 print karra lkn break condition ku wahi stop kardeta hai or uske bad ka code ku execute nahi karta jaise yaha 7 ku break kardiya or age 8 print nahi hoga
-
-for(let a=1 ; a<=10; a++){
-    if(a==3){
-        continue;
-    }
-    if(a==7){
-        break;
-    }
-    console.log(a);
-}
-
-
-
-function CheckAge(age){
-    if (age < 18){
-        console.log("You are a minor");
-    }else{
-        console.log("You are an adult");
-    }
-}
-
-CheckAge(2);
+console.log(result());
