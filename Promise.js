@@ -17,7 +17,7 @@ function Login(username, password) {
 }
 
 
-Login("admin", "123")
+Login("admin", "1234")
     .then(function(result) {
 
         console.log(result);
@@ -30,3 +30,14 @@ Login("admin", "123")
     });
 
 
+async function GetProducts() {
+
+    let response = await fetch("https://fakestoreapi.com/products");
+
+    let products = await response.json();
+
+    console.log(products);
+
+}
+
+GetProducts();
