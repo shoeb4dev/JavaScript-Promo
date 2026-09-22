@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My To-Do List</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      height: fit-content;
+    }
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    #taskInput {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    #addButton {
+      background: #2563eb;
+      color: white;
+    }
+
+    #taskList {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0 10px;
+    }
+
+    .task {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      margin-bottom: 8px;
+      background: #f9fafb;
+      border-radius: 8px;
+    }
+
+    .task span {
+      flex: 1;
+    }
+
+    .completed span {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .delete {
+      background: #ef4444;
+      color: white;
+      padding: 7px 10px;
+    }
+
+    .count {
+      color: #666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 500px) {
+      .input-row {
+        flex-direction: column;
+      }
+
+      #addButton {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+    <h1>My To-Do List</h1>
+
+    <div class="input-row">
+      <input
+        id="taskInput"
+        type="text"
+        placeholder="What needs to be done?"
+      >
+      <button id="addButton">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+    <div class="count">
+      <span id="remainingCount">0</span> tasks remaining
+    </div>
+  </div>
+
+  <script>
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    const taskInput = document.getElementById("taskInput");
+    const addButton = document.getElementById("addButton");
+    const taskList = document.getElementById("taskList");
+    const remainingCount = document.getElementById("remainingCount");
+
+    function saveTasks() {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function renderTasks() {
+      taskList.innerHTML = "";
+
+      tasks.forEach(function(task, index) {
+
+        const li = document.createElement("li");
+        li.className = "task";
+
+        if (task.completed) {
+          li.classList.add("completed");
+        }
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+
+        checkbox.addEventListener("change", function() {
+          tasks[index].completed = checkbox.checked;
+          saveTasks();
+          renderTasks();
+        });
+
+        const span = document.createElement("span");
+        span.textContent = task.text;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "delete";
+
+        deleteButton.addEventListener("click", function() {
+          tasks.splice(index, 1);
+          saveTasks();
+          renderTasks();
+        });
+
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(deleteButton);
+
+        taskList.appendChild(li);
+      });
+
+      const remaining = tasks.filter(function(task) {
+        return !task.completed;
+      }).length;
+
+      remainingCount.textContent = remaining;
+    }
+
+    function addTask() {
+      const text = taskInput.value.trim();
+
+      if (text === "") {
+        return;
+      }
+
+      tasks.push({
+        text: text,
+        completed: false
+      });
+
+      saveTasks();
+
+      taskInput.value = "";
+      taskInput.focus();
+
+      renderTasks();
+    }
+
+    addButton.addEventListener("click", addTask);
+
+    taskInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        addTask();
+      }
+    });
+
+    renderTasks();
+  </script>
+
+</body>
+</html>
